@@ -8,7 +8,7 @@
     <style>
         canvas {
             
-            border: 1px solid #ffffff;
+            border: 0px solid #ffffff;
             background-image: url("");
         }
 
@@ -17,10 +17,17 @@
     <script src="script.js"></script>
 </head>
 
-<body background="1.jpg" onload="startGame()">
+<body background="2.jpg" onload="startGame()">
+    
     
     <br>
-    <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">{[]</button>
+    <button onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">[КНОПКА]</button> <button type="button" onClick="Refresh()">НАЖМИ, ЕСЛИ ПРОИГРАЛ</button>
+
+<script>
+    function Refresh() {
+        window.parent.location = window.parent.location.href;
+    }
+</script>
 
 </body>
 
