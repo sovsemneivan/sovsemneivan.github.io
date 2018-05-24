@@ -5,7 +5,7 @@
 
         function startGame() {
             gameobject = new component(15, 15, "circle.png", 10, 120, "image");
-            gameobject.gravity = 0.1;
+            gameobject.gravity = 0.5;
             myScore = new component("30px", "Consolas", "black", 280, 40, "text");
             myGameArea.start();
         }
@@ -13,8 +13,8 @@
         var myGameArea = {
             canvas: document.createElement("canvas"),
             start: function() {
-                this.canvas.width = 1600;
-                this.canvas.height = 900;
+                this.canvas.width = 480;
+                this.canvas.height = 270;
                 this.context = this.canvas.getContext("2d");
                 document.body.insertBefore(this.canvas, document.body.childNodes[0]);
                 this.frameNo = 0;
@@ -34,7 +34,7 @@
             this.speedY = 0;
             this.x = x;
             this.y = y;
-            this.gravity = 0.1;
+            this.gravity = 0.5;
             this.gravitySpeed = 0;
             this.update = function() {
                 ctx = myGameArea.context;
