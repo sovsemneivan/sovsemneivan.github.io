@@ -1,11 +1,11 @@
 
-        var newGame;
+        var gameobject;
         var myObstacles = [];
         var myScore;
 
         function startGame() {
-            newGame = new component(15, 15, "circle.png", 10, 120, "image");
-            newGame.gravity = 0.5;
+            gameobject = new component(15, 15, "circle.png", 10, 120, "image");
+            gameobject.gravity = 0.1;
             myScore = new component("30px", "Consolas", "black", 280, 40, "text");
             myGameArea.start();
         }
@@ -13,8 +13,8 @@
         var myGameArea = {
             canvas: document.createElement("canvas"),
             start: function() {
-                this.canvas.width = 480;
-                this.canvas.height = 270;
+                this.canvas.width = 1600;
+                this.canvas.height = 900;
                 this.context = this.canvas.getContext("2d");
                 document.body.insertBefore(this.canvas, document.body.childNodes[0]);
                 this.frameNo = 0;
@@ -34,7 +34,7 @@
             this.speedY = 0;
             this.x = x;
             this.y = y;
-            this.gravity = 0.5;
+            this.gravity = 0.1;
             this.gravitySpeed = 0;
             this.update = function() {
                 ctx = myGameArea.context;
@@ -80,7 +80,7 @@
         function updateGameArea() {
             var x, height, gap, minHeight, maxHeight, minGap, maxGap;
             for (i = 0; i < myObstacles.length; i += 1) {
-                if (newGame.crashWith(myObstacles[i])) {
+                if (gameobject.crashWith(myObstacles[i])) {
                     return;
                 }
             }
@@ -103,8 +103,8 @@
             }
             myScore.text = "СЧЕТ: " + myGameArea.frameNo;
             myScore.update();
-            newGame.newPos();
-            newGame.update();
+            gameobject.newPos();
+            gameobject.update();
         }
 
         function everyinterval(n) {
@@ -115,7 +115,7 @@
         }
 
         function accelerate(n) {
-           newGame.gravity = n;
+           gameobject.gravity = n;
         }
 
 startGame();
